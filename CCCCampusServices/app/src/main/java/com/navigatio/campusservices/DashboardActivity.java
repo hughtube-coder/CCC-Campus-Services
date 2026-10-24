@@ -101,6 +101,39 @@ public class DashboardActivity extends AppCompatActivity {
         return Math.max(last, 0);
     }
 
+    /*
+     * Index of the node where the green start pin is drawn and where the
+     * route line begins.
+     *
+     * If the user scans a ROOM QR (for example Cashier Office), the first
+     * node sits in the middle of the room box. The line would then start
+     * inside the room and cross its wall to reach the door. Like the
+     * destination, the start is moved to the room's door instead, so the
+     * line begins outside the room.
+     */
+    private int getStartPinIndex() {
+
+        if (currentRouteNodes.size() >= 3) {
+
+            NavigationNode start =
+                    currentRouteNodes.get(0);
+
+            NavigationNode next =
+                    currentRouteNodes.get(1);
+
+            if (start.isQrEnabled()
+                    && next.getName() != null
+                    && next.getName().equalsIgnoreCase("Door")
+                    && next.getMapPage()
+                    == start.getMapPage()) {
+
+                return 1;
+            }
+        }
+
+        return 0;
+    }
+
 
     private int currentMapPage = 1;
 
@@ -514,6 +547,13 @@ public class DashboardActivity extends AppCompatActivity {
         StringBuilder route =
                 new StringBuilder();
 
+        /*
+         * Consecutive waypoints with the same label ("Corridor",
+         * "Door", ...) are shown only once so the instructions stay
+         * short and readable.
+         */
+        String lastLabel = null;
+
         for (int i = 0;
              i < currentRouteNodes.size();
              i++) {
@@ -521,38 +561,36 @@ public class DashboardActivity extends AppCompatActivity {
             NavigationNode node =
                     currentRouteNodes.get(i);
 
+            String label =
+                    node.getName();
 
             if (i > 0) {
 
                 NavigationNode previousNode =
                         currentRouteNodes.get(i - 1);
 
-
                 if (previousNode.getMapPage()
                         != node.getMapPage()) {
 
-                    route.append(
-                                    "\n\nContinue on Map Page "
-                            )
-                            .append(
-                                    node.getMapPage()
-                            )
-                            .append(
-                                    "\n\n"
-                            );
+                    route.append("\n\nContinue on Map Page ")
+                            .append(node.getMapPage())
+                            .append("\n\n");
+
+                    lastLabel = null;
 
                 } else {
 
-                    route.append(
-                            "\n↓\n"
-                    );
+                    if (label != null
+                            && label.equalsIgnoreCase(lastLabel)) {
+                        continue;
+                    }
+
+                    route.append("\n\u2193\n");
                 }
             }
 
-
-            route.append(
-                    node.getName()
-            );
+            route.append(label);
+            lastLabel = label;
         }
 
 
@@ -801,6 +839,61 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
 
+    /*
+     * Drawer office name -> exact node name in CampusGraph.
+     * Only offices whose drawer name differs from the graph name
+     * need an entry.
+     */
+    private String getGraphNameForOffice(String officeName) {
+
+        if (officeName == null) {
+            return null;
+        }
+
+        switch (officeName.trim().toLowerCase(java.util.Locale.US)) {
+
+            case "guidance":
+                return "Guidance Office";
+
+            case "cashier":
+                return "Cashier Office";
+
+            default:
+                return officeName.trim();
+        }
+    }
+
+    /*
+     * "View on Map" button inside the drawer: sets the destination,
+     * closes the drawer and starts the Dijkstra route right away.
+     */
+    private void viewOfficeOnMap(String officeName) {
+
+        NavigationNode target =
+                campusGraph.findNodeByName(
+                        getGraphNameForOffice(officeName)
+                );
+
+        if (target == null || !target.isQrEnabled()) {
+
+            Toast.makeText(
+                    DashboardActivity.this,
+                    "Map location for " + officeName
+                            + " is not available yet.",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+            return;
+        }
+
+        spinnerDestination.setText(target.getName(), false);
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+        startNavigation();
+    }
+
+
     private void addOffice(
             String officeName,
             String location,
@@ -987,7 +1080,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         addDetailText(
                 details,
-                "Experimental information only. Official office information will be added after the school provides the requested data."
+                "Office details are for guidance only and may be updated. Please confirm with the office."
         );
 
 
@@ -1031,11 +1124,7 @@ public class DashboardActivity extends AppCompatActivity {
 
 
         viewOnMap.setOnClickListener(
-                v -> Toast.makeText(
-                        DashboardActivity.this,
-                        "View on Map will be connected to the finalized campus map and Dijkstra navigation.",
-                        Toast.LENGTH_SHORT
-                ).show()
+                v -> viewOfficeOnMap(officeName)
         );
 
 
@@ -2339,8 +2428,9 @@ public class DashboardActivity extends AppCompatActivity {
              * so the route line stops there instead of going inside.
              */
             final int pinIndex = getDestinationPinIndex();
+            final int startPinIndex = getStartPinIndex();
 
-            for (int i = 0;
+            for (int i = startPinIndex;
                  i < pinIndex;
                  i++) {
 
@@ -2632,7 +2722,7 @@ public class DashboardActivity extends AppCompatActivity {
 
 
                 boolean start =
-                        i == 0;
+                        i == startPinIndex;
 
                 boolean destination =
                         i == pinIndex;

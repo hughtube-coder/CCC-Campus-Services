@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/mainDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FAF9FA">
+
+        <!-- CAMPUS MAP -->
+        <ImageView
+            android:id="@+id/campusMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/map_page_1"
+            android:scaleType="matrix"
+            android:contentDescription="Campus Map" />
+
+        <!-- MAP OVERLAY -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#33FFFFFF" />
+
+        <!-- NAVIGATION CONTROLS -->
+        <LinearLayout
+            android:id="@+id/navigationControls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="82dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:orientation="vertical">
+
+            <!-- QR-LOCKED STARTING LOCATION -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerStartLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/dashboard_dropdown"
+                    android:fontFamily="Poppins"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="16dp"
+                    android:hint="Scan a campus QR code"
+                    android:singleLine="true"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
+
+            </FrameLayout>
+
+            <!-- SEARCHABLE DESTINATION -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="12dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerDestination"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/dashboard_dropdown"
+                    android:fontFamily="Poppins"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="45dp"
+                    android:hint="Search destination"
+                    android:singleLine="true"
+                    android:inputType="textCapWords"
+                    android:completionThreshold="1"
+                    android:dropDownHeight="260dp"
+                    android:dropDownVerticalOffset="2dp"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/dropdown"
+                    android:scaleType="centerInside"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+            </FrameLayout>
+
+            <!-- START NAVIGATION -->
+            <Button
+                android:id="@+id/btnStartNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#00114D"
+                android:fontFamily="Poppins"
+                android:text="Start Navigation"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <!-- PATH INSTRUCTIONS -->
+        <LinearLayout
+            android:id="@+id/pathInstructionsPanel"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="0dp"
+            android:background="#FFFFFF"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <View
+                android:id="@+id/pathDragHandle"
+                android:layout_width="45dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="14dp"
+                android:background="#BDBDBD" />
+
+            <TextView
+                android:id="@+id/tvPathTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="Poppins"
+                android:text="PATH INSTRUCTIONS"
+                android:textColor="#00114D"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fillViewport="false"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/tvPathInstructions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Scan a campus QR code and select a destination."
+                    android:textColor="#333333"
+                    android:textSize="15sp" />
+
+            </ScrollView>
+
+        </LinearLayout>
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:background="#00114D"
+            android:elevation="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <ImageView
+                android:id="@+id/ivMenu"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:clickable="true"
+                android:contentDescription="Menu"
+                android:focusable="true"
+                android:src="@drawable/menuicon" />
+
+            <ImageView
+                android:id="@+id/ivLogoIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="14dp"
+                android:contentDescription="Map Logo Icon"
+                android:src="@drawable/maplogoicon" />
+
+            <TextView
+                android:id="@+id/tvHeaderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="Poppins"
+                android:text="CCC: Campus Services"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- SIDE NAVIGATION DRAWER -->
+    <LinearLayout
+        android:id="@+id/navigationDrawer"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#FAF9FA"
+        android:elevation="16dp"
+        android:orientation="vertical">
+
+        <!-- DRAWER HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="12dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:contentDescription="Campus Services Logo"
+                android:src="@drawable/maplogo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="CCC: Campus Services"
+                android:textColor="#00114D"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OFFICES"
+                android:textColor="#777777"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+
+        <!-- DIVIDER -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BDBDBD" />
+
+        <!-- OFFICE LIST -->
+        <ScrollView
+            android:id="@+id/officeScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/officeListContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="20dp" />
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -43,6 +43,13 @@ public class DashboardActivity extends AppCompatActivity {
     private String scannedNodeId;
     private NavigationNode scannedStartNode;
 
+    /* destination name (lower-case) -> office info shown on arrival */
+    private final java.util.Map<String, String> officeSummaryByName =
+            new java.util.HashMap<>();
+
+    /* average walking speed used for the time estimate */
+    private static final double WALKING_METERS_PER_MINUTE = 72.0;
+
     private LinearLayout pathInstructionsPanel;
     private View pathDragHandle;
 
@@ -446,6 +453,61 @@ public class DashboardActivity extends AppCompatActivity {
      * (or after) scanning. Old route is cleared so nothing stale is
      * shown, and the map jumps to the page of the new start.
      */
+    /* Sum of the edge distances (meters) along the current route. */
+    private double getRouteDistanceMeters() {
+
+        double total = 0;
+
+        for (int i = 0; i < currentRouteNodes.size() - 1; i++) {
+
+            String a = currentRouteNodes.get(i).getId();
+            String b = currentRouteNodes.get(i + 1).getId();
+
+            double best = -1;
+
+            for (NavigationEdge edge : campusGraph.getEdges()) {
+
+                String from = edge.getFromNodeId();
+                String to = edge.getToNodeId();
+
+                if ((from.equals(a) && to.equals(b))
+                        || (from.equals(b) && to.equals(a))) {
+
+                    if (best < 0 || edge.getDistance() < best) {
+                        best = edge.getDistance();
+                    }
+                }
+            }
+
+            if (best > 0) {
+                total += best;
+            }
+        }
+
+        return total;
+    }
+
+
+    private String buildRouteSummary() {
+
+        double meters = getRouteDistanceMeters();
+
+        if (meters <= 0) {
+            return "";
+        }
+
+        double minutes = meters / WALKING_METERS_PER_MINUTE;
+
+        String time =
+                minutes < 1
+                        ? "less than a minute"
+                        : "about " + (int) Math.ceil(minutes) + " min";
+
+        return "Distance: about " + Math.round(meters)
+                + " m  \u2022  Walking time: " + time + "\n\n";
+    }
+
+
     private void setManualStart(NavigationNode node) {
 
         scannedStartNode = node;
@@ -675,8 +737,31 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
 
+        StringBuilder fullText = new StringBuilder();
+
+        fullText.append(buildRouteSummary());
+        fullText.append(route);
+
+        String officeInfo =
+                officeSummaryByName.get(
+                        destinationNode.getName()
+                                .toLowerCase(java.util.Locale.US)
+                );
+
+        if (officeInfo != null) {
+
+            fullText.append("\n\n\u2014 You have arrived \u2014\n")
+                    .append(destinationNode.getName())
+                    .append("\n")
+                    .append(officeInfo);
+
+        } else {
+
+            fullText.append("\n\n\u2014 You have arrived \u2014");
+        }
+
         tvPathInstructions.setText(
-                route.toString()
+                fullText.toString()
         );
 
 
@@ -997,6 +1082,29 @@ public class DashboardActivity extends AppCompatActivity {
             String schedule,
             String[] functions,
             String[] services) {
+
+        /*
+         * Remember a short summary so it can be shown at the end of
+         * the route when this office is the destination.
+         */
+        StringBuilder summary = new StringBuilder();
+        summary.append("Location: ").append(location);
+        summary.append("\nOffice hours: ").append(officeHours)
+                .append(", ").append(schedule);
+
+        if (services != null && services.length > 0) {
+            summary.append("\nServices: ")
+                    .append(android.text.TextUtils.join(", ", services));
+        }
+
+        String graphName = getGraphNameForOffice(officeName);
+
+        if (graphName != null) {
+            officeSummaryByName.put(
+                    graphName.toLowerCase(java.util.Locale.US),
+                    summary.toString()
+            );
+        }
 
         LinearLayout officeContainer =
                 new LinearLayout(this);

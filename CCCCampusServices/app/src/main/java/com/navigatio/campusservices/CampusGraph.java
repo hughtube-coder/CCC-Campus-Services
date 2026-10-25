@@ -103,6 +103,47 @@ public class CampusGraph {
         addNode("P039", "Corridor", 1, 0.377f, 0.633f, false);   // corridor junction below the Underground passage
         addNode("U004", "Underground", 1, 0.377f, 0.595f, false);
 
+        // ---------------------------------------------------------
+        // CORNER WAYPOINTS added so routes follow the corridors at
+        // 90-degree corners instead of cutting diagonally through walls.
+        addNode("X1001", "Corridor", 1, 0.4138f, 0.4698f, false);
+        addNode("X2001", "Corridor", 2, 0.4672f, 0.1667f, false);
+        addNode("X2002", "Corridor", 2, 0.6156f, 0.1898f, false);
+        addNode("X2003", "Corridor", 2, 0.6203f, 0.3000f, false);
+        addNode("X2004", "Corridor", 2, 0.6203f, 0.2509f, false);
+        addNode("X2005", "Corridor", 2, 0.6156f, 0.2509f, false);
+        addNode("X2006", "Corridor", 2, 0.5557f, 0.2130f, false);
+        addNode("X2007", "Corridor", 2, 0.4630f, 0.7259f, false);
+        addNode("X2008", "Corridor", 2, 0.4313f, 0.8333f, false);
+        addNode("X2009", "Corridor", 2, 0.3839f, 0.8333f, false);
+        addNode("X2010", "Corridor", 2, 0.4672f, 0.2676f, false);
+        addNode("X2011", "Corridor", 2, 0.5880f, 0.6398f, false);
+        addNode("X2012", "Corridor", 2, 0.5880f, 0.5352f, false);
+        addNode("X2013", "Corridor", 2, 0.5901f, 0.5352f, false);
+        addNode("X3001", "Corridor", 3, 0.4901f, 0.4639f, false);
+        addNode("X3002", "Corridor", 3, 0.4901f, 0.4528f, false);
+        addNode("X3003", "Corridor", 3, 0.5099f, 0.4528f, false);
+        addNode("X3004", "Corridor", 3, 0.4917f, 0.4639f, false);
+        addNode("X3005", "Corridor", 3, 0.4917f, 0.4722f, false);
+        addNode("X3006", "Corridor", 3, 0.5198f, 0.4722f, false);
+        addNode("X3007", "Corridor", 3, 0.3859f, 0.6852f, false);
+        addNode("X4001", "Corridor", 4, 0.4708f, 0.4602f, false);
+        addNode("X4002", "Corridor", 4, 0.4708f, 0.3880f, false);
+        addNode("X4003", "Corridor", 4, 0.5089f, 0.4685f, false);
+        addNode("X4004", "Corridor", 4, 0.4766f, 0.4685f, false);
+        addNode("X4005", "Corridor", 4, 0.4828f, 0.4611f, false);
+        addNode("X4006", "Corridor", 4, 0.4828f, 0.4694f, false);
+        addNode("X4007", "Corridor", 4, 0.5109f, 0.4694f, false);
+        addNode("X4008", "Corridor", 4, 0.3818f, 0.7009f, false);
+        addNode("X4009", "Corridor", 4, 0.4391f, 0.7009f, false);
+        addNode("X1002", "Corridor", 1, 0.6526f, 0.6095f, false);
+        addNode("X1003", "Corridor", 1, 0.6653f, 0.6095f, false);
+        addNode("X1004", "Corridor", 1, 0.6653f, 0.6024f, false);
+        addNode("X1005", "Corridor", 1, 0.4811f, 0.4675f, false);
+        addNode("X1006", "Corridor", 1, 0.4811f, 0.6331f, false);
+        addNode("X2014", "Corridor", 2, 0.4953f, 0.2676f, false);
+        // ---------------------------------------------------------
+
         addEdge("P001", "P002", 3);
         addEdge("P002", "P003", 5);
         addEdge("P003", "P004", 11);
@@ -125,7 +166,8 @@ public class CampusGraph {
         addEdge("P020", "P021", 9);
         addEdge("P021", "P022", 6);
         // REMOVED (crossed walls/rooms, not a walkable corridor): addEdge("P015", "P017", 13);
-        addEdge("P016", "P019", 4);
+        addEdge("P016", "X1001", 2.5);
+        addEdge("X1001", "P019", 5.0);
         addEdge("P024", "P025", 3);
         addEdge("P025", "P039", 5);   // main corridor, split at the Underground passage
         addEdge("P039", "P023", 5);
@@ -135,7 +177,9 @@ public class CampusGraph {
         addEdge("P028", "P029", 3);
         addEdge("P029", "P030", 6);
         addEdge("P007", "P024", 10);
-        addEdge("P019", "P023", 13);
+        addEdge("P019", "X1005", 1.5);
+        addEdge("X1005", "X1006", 11.5);
+        addEdge("X1006", "P023", 3.5);
         addEdge("P031", "P032", 4);
         addEdge("P032", "P033", 3);
         addEdge("P033", "P034", 5);
@@ -178,7 +222,10 @@ public class CampusGraph {
         addEdge("D019", "N019", 2);
         addEdge("P034", "D020", 2);
         addEdge("D020", "N020", 2);
-        addEdge("P028", "D021", 4);
+        addEdge("P028", "X1002", 1.5);
+        addEdge("X1002", "X1003", 1.0);
+        addEdge("X1003", "X1004", 0.5);
+        addEdge("X1004", "D021", 1.5);
         addEdge("D021", "N021", 2);
         addEdge("P030", "D022", 2);
         addEdge("D022", "N022", 2);
@@ -368,7 +415,8 @@ public class CampusGraph {
         addEdge("P2045", "P2047", 10.1);
         addEdge("P2029", "P2030", 12.3);
         addEdge("P2017", "P2015", 3.3);
-        addEdge("P2017", "P2010", 14.1);
+        addEdge("P2017", "X2001", 6.5);
+        addEdge("X2001", "P2010", 8.0);
         addEdge("P2017", "P2024", 5.5);
         addEdge("P2018", "P2016", 3.9);
         addEdge("P2018", "P2019", 1.1);
@@ -379,22 +427,29 @@ public class CampusGraph {
         addEdge("P2008", "P2010", 1.8);
         addEdge("P2007", "P2014", 2.0);
         addEdge("P2016", "P2014", 4.5);
-        addEdge("P2016", "P2023", 22.7);
+        addEdge("P2016", "X2002", 17.0);
+        addEdge("X2002", "P2023", 6.0);
         addEdge("P2006", "P2013", 2.0);
         addEdge("P2012", "P2005", 6.0);
         addEdge("P2012", "P2011", 4.8);
         addEdge("P2012", "P2013", 9.2);
         addEdge("P2032", "P2028", 29.7);
-        addEdge("P2032", "P2023", 25.6);
+        addEdge("P2032", "X2003", 10.5);
+        addEdge("X2003", "X2004", 9.0);
+        addEdge("X2004", "X2005", 1.5);
+        addEdge("X2005", "P2023", 5.0);
         addEdge("P2032", "P2046", 36.3);
-        addEdge("P2021", "P2019", 2.7);
+        addEdge("P2021", "X2006", 1.5);
+        addEdge("X2006", "P2019", 1.5);
         addEdge("P2022", "P2020", 0.6);
         addEdge("P2001", "P2002", 7.2);
         addEdge("P2014", "P2013", 3.8);
-        addEdge("P2066", "P2070", 5.2);
+        addEdge("P2066", "X2007", 4.5);
+        addEdge("X2007", "P2070", 1.0);
         addEdge("P2067", "P2068", 1.7);
         addEdge("P2061", "P2055", 2.4);
-        addEdge("P2028", "P2027", 6.7);
+        addEdge("P2028", "X2014", 5.5);
+        addEdge("X2014", "P2027", 2.0);
         addEdge("P2028", "P2031", 1.9);
         addEdge("P2010", "P2009", 7.8);
         addEdge("P2010", "P2011", 4.3);
@@ -404,9 +459,12 @@ public class CampusGraph {
         addEdge("P2026", "P2025", 0.5);
         addEdge("P2076", "P2074", 2.9);
         addEdge("P2076", "P2077", 11.0);
-        addEdge("P2076", "P2078", 19.7);
+        addEdge("P2076", "X2008", 3.5);
+        addEdge("X2008", "X2009", 15.5);
+        addEdge("X2009", "P2078", 1.5);
         addEdge("P2027", "P2025", 2.3);
-        addEdge("P2027", "P2024", 13.0);
+        addEdge("P2027", "X2010", 7.0);
+        addEdge("X2010", "P2024", 6.5);
         addEdge("P2070", "P2069", 4.2);
         addEdge("P2070", "P2075", 13.0);
         addEdge("P2051", "P2050", 1.5);
@@ -414,7 +472,10 @@ public class CampusGraph {
         addEdge("P2051", "P2059", 11.4);
         addEdge("P2059", "P2058", 7.8);
         addEdge("P2059", "P2060", 0.5);
-        addEdge("P2062", "P2049", 30.5);
+        addEdge("P2062", "X2011", 8.0);
+        addEdge("X2011", "X2012", 19.0);
+        addEdge("X2012", "X2013", 0.5);
+        addEdge("X2013", "P2049", 3.0);
         addEdge("P2062", "P2063", 2.6);
         addEdge("P2062", "P2065", 2.6);
         addEdge("P2071", "P2069", 3.4);
@@ -594,9 +655,15 @@ public class CampusGraph {
         addNode("N084", "JMC Second Floor Right Stair", 3, 0.5677f, 0.5713f, false);
 
         // --- corridor connections
-        addEdge("P3020", "P3013", 9.4);
-        addEdge("P3020", "P3015", 3.1);
-        addEdge("P3020", "P3016", 12.6);
+        addEdge("P3020", "X3001", 1.5);
+        addEdge("X3001", "X3002", 2.0);
+        addEdge("X3002", "X3003", 6.5);
+        addEdge("X3003", "P3013", 1.0);
+        addEdge("P3020", "P3015", 3.0);
+        addEdge("P3020", "X3004", 2.0);
+        addEdge("X3004", "X3005", 1.5);
+        addEdge("X3005", "X3006", 9.0);
+        addEdge("X3006", "P3016", 1.5);
         addEdge("P3024", "P3022", 10.2);
         addEdge("P3024", "P3025", 2.8);
         addEdge("P3024", "P3028", 1.1);
@@ -623,7 +690,8 @@ public class CampusGraph {
         addEdge("P3010", "P3019", 11.2);
         addEdge("P3019", "P3021", 6.6);
         addEdge("P3008", "P3007", 10.5);
-        addEdge("P3030", "P3021", 53.5);
+        addEdge("P3030", "X3007", 18.0);
+        addEdge("X3007", "P3021", 33.5);
         addEdge("P3028", "P3026", 6.4);
 
         // --- waypoint -> door -> room connections
@@ -711,7 +779,9 @@ public class CampusGraph {
         addEdge("P4009", "P4008", 2.4);
         addEdge("P4001", "P4008", 18.4);
         addEdge("P4027", "P4028", 0.9);
-        addEdge("P4014", "P4006", 13.1);
+        addEdge("P4014", "X4001", 1.0);
+        addEdge("X4001", "X4002", 13.0);
+        addEdge("X4002", "P4006", 1.5);
         addEdge("P4014", "P4017", 0.7);
         addEdge("P4014", "P4013", 10.5);
         addEdge("P4006", "P4003", 3.9);
@@ -725,18 +795,25 @@ public class CampusGraph {
         addEdge("P4004", "P4007", 3.8);
         addEdge("P4010", "P4015", 3.8);
         addEdge("P4012", "P4007", 10.0);
-        addEdge("P4012", "P4017", 11.9);
+        addEdge("P4012", "X4003", 4.5);
+        addEdge("X4003", "X4004", 10.5);
+        addEdge("X4004", "P4017", 1.5);
         addEdge("P4012", "P4018", 3.6);
         addEdge("P4013", "P4011", 3.7);
         addEdge("P4002", "P4005", 13.5);
         addEdge("P4023", "P4021", 0.5);
-        addEdge("P4017", "P4018", 12.4);
+        addEdge("P4017", "X4005", 2.0);
+        addEdge("X4005", "X4006", 1.5);
+        addEdge("X4006", "X4007", 9.0);
+        addEdge("X4007", "P4018", 1.5);
         addEdge("P4019", "P4005", 16.8);
         addEdge("P4019", "P4015", 18.1);
         addEdge("P4019", "P4020", 7.5);
         addEdge("P4015", "P4018", 9.6);
         addEdge("P4026", "P4024", 12.2);
-        addEdge("P4025", "P4028", 29.0);
+        addEdge("P4025", "X4008", 10.0);
+        addEdge("X4008", "X4009", 18.5);
+        addEdge("X4009", "P4028", 1.0);
 
         // --- waypoint -> door -> room connections
         addEdge("P4009", "D4001", 3.4);

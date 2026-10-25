@@ -249,9 +249,14 @@ public class DashboardActivity extends AppCompatActivity {
          * =====================================================
          */
 
+        /*
+         * The scanned QR is the DEFAULT start, but the user may change
+         * it from the dropdown (see setManualStart). Typing is
+         * disabled so only valid locations can be chosen.
+         */
         spinnerStartLocation.setKeyListener(null);
         spinnerStartLocation.setFocusable(false);
-        spinnerStartLocation.setClickable(false);
+        spinnerStartLocation.setClickable(true);
         spinnerStartLocation.setCursorVisible(false);
 
         if (scannedStartNode != null
@@ -275,14 +280,14 @@ public class DashboardActivity extends AppCompatActivity {
             );
 
             spinnerStartLocation.setHint(
-                    "Scan a valid campus QR code"
+                    "Choose a start location"
             );
 
             btnStartNavigation.setEnabled(false);
 
             Toast.makeText(
                     DashboardActivity.this,
-                    "Starting location could not be identified.",
+                    "Starting location could not be identified. Please choose a start location from the list.",
                     Toast.LENGTH_LONG
             ).show();
         }
@@ -350,6 +355,48 @@ public class DashboardActivity extends AppCompatActivity {
 
 
         /*
+         * START LOCATION DROPDOWN
+         * Same list as the destinations. Choosing a different start
+         * moves the map to that location and clears the old route.
+         */
+        ArrayAdapter<String> startAdapter =
+                new ArrayAdapter<>(
+                        this,
+                        R.layout.spinner_dropdown_item,
+                        destinationNames
+                );
+
+        spinnerStartLocation.setAdapter(startAdapter);
+
+        spinnerStartLocation.setOnClickListener(
+                v -> spinnerStartLocation.showDropDown()
+        );
+
+        spinnerStartLocation.post(() ->
+                spinnerStartLocation.setDropDownWidth(
+                        spinnerStartLocation.getWidth()
+                )
+        );
+
+        spinnerStartLocation.setOnItemClickListener(
+                (parent, view, position, id) -> {
+
+                    String chosen =
+                            startAdapter.getItem(position);
+
+                    NavigationNode node =
+                            chosen == null
+                                    ? null
+                                    : campusGraph.findNodeByName(chosen);
+
+                    if (node != null && node.isQrEnabled()) {
+                        setManualStart(node);
+                    }
+                }
+        );
+
+
+        /*
          * =====================================================
          * ROUTE OVERLAY
          * =====================================================
@@ -394,13 +441,47 @@ public class DashboardActivity extends AppCompatActivity {
      * =========================================================
      */
 
+    /*
+     * User picked a start location from the dropdown instead of
+     * (or after) scanning. Old route is cleared so nothing stale is
+     * shown, and the map jumps to the page of the new start.
+     */
+    private void setManualStart(NavigationNode node) {
+
+        scannedStartNode = node;
+        scannedNodeId = node.getId();
+
+        spinnerStartLocation.setText(node.getName(), false);
+
+        btnStartNavigation.setEnabled(true);
+
+        currentRouteNodes.clear();
+
+        tvPathInstructions.setText("");
+
+        displayMapForNode(node);
+
+        updatePageNavigation();
+
+        if (routeOverlay != null) {
+            routeOverlay.invalidate();
+        }
+
+        Toast.makeText(
+                DashboardActivity.this,
+                "Starting point set to " + node.getName(),
+                Toast.LENGTH_SHORT
+        ).show();
+    }
+
+
     private void startNavigation() {
 
         if (scannedStartNode == null) {
 
             Toast.makeText(
                     DashboardActivity.this,
-                    "Please scan a valid campus QR code.",
+                    "Please choose a start location.",
                     Toast.LENGTH_SHORT
             ).show();
 
@@ -618,6 +699,21 @@ public class DashboardActivity extends AppCompatActivity {
 
         if (routeOverlay != null) {
             routeOverlay.invalidate();
+        }
+
+        List<Integer> routePages = getRoutePages();
+
+        if (routePages.size() > 1) {
+
+            Toast.makeText(
+                    DashboardActivity.this,
+                    "This route continues on Map "
+                            + routePages.get(1)
+                            + ". Tap the Map "
+                            + routePages.get(1)
+                            + " button to follow it.",
+                    Toast.LENGTH_LONG
+            ).show();
         }
 
         collapsePathInstructions();
@@ -2151,6 +2247,22 @@ public class DashboardActivity extends AppCompatActivity {
                 "Map " + currentMapPage
                         + "  (" + (index + 1)
                         + "/" + pages.size() + ")"
+        );
+
+        /*
+         * Buttons name the map they lead to ("Map 2 ▶") so the user
+         * knows where the route continues.
+         */
+        btnPrevPage.setText(
+                index > 0
+                        ? "\u25C0 Map " + pages.get(index - 1)
+                        : "\u25C0 Back"
+        );
+
+        btnNextPage.setText(
+                index < pages.size() - 1
+                        ? "Map " + pages.get(index + 1) + " \u25B6"
+                        : "Next \u25B6"
         );
 
         btnPrevPage.setEnabled(index > 0);

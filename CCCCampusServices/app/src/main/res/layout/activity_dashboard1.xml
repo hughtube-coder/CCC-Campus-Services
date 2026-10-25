@@ -51,7 +51,7 @@
                     android:fontFamily="Poppins"
                     android:paddingStart="20dp"
                     android:paddingEnd="16dp"
-                    android:hint="Scan a campus QR code"
+                    android:hint="Choose a start location"
                     android:singleLine="true"
                     android:inputType="none"
                     android:focusable="false"

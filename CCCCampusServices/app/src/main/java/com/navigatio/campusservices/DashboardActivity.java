@@ -2937,17 +2937,42 @@ public class DashboardActivity extends AppCompatActivity {
                                 )
                         );
 
-                if (!isWalkable(
+                int pixel =
                         bitmap.getPixel(
                                 px,
                                 py
-                        ))) {
+                        );
+
+                /*
+                 * Dark-gray corridors are walkable. Plain white open
+                 * floor (for example the hall in front of the Office
+                 * of the College President) is also accepted for
+                 * straight lines; walls, rooms and stair outlines are
+                 * not white, so they still block the line.
+                 */
+                if (!isWalkable(pixel)
+                        && !isOpenFloor(pixel)) {
 
                     return false;
                 }
             }
 
             return true;
+        }
+
+
+        private boolean isOpenFloor(
+                int color) {
+
+            int r = Color.red(color);
+            int g = Color.green(color);
+            int b = Color.blue(color);
+
+            int min = Math.min(r, Math.min(g, b));
+            int max = Math.max(r, Math.max(g, b));
+
+            return min >= 240
+                    && (max - min) <= 8;
         }
 
 

@@ -845,7 +845,7 @@ public class CampusGraph {
 
         // Outside: Admin Building (page 1) -> Campus Main Path (page 2).
         // U001 is named "Entrance Stairs", which lets the page change pass.
-        addEdge("U001", "P2031", 40);
+        //addEdge("U001", "P2031", 40);
 
         // Underground: Admin Building "Down" stairs -> Underground passage
         // -> AB building underground stairs (page 2).

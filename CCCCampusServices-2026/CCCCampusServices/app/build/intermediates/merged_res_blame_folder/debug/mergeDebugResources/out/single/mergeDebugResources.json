@@ -4,12 +4,20 @@
         "source": "com.navigatio.campusservices.app-main-45:/layout/activity_qrscanner.xml"
     },
     {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_bg_card.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/bg_card.xml"
+    },
+    {
         "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "com.navigatio.campusservices.app-main-45:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
         "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-hdpi_ic_launcher.webp.flat",
         "source": "com.navigatio.campusservices.app-main-45:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_bg_side_pill.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/bg_side_pill.xml"
     },
     {
         "merged": "com.navigatio.campusservices.app-debug-43:/layout_activity_security_scan.xml.flat",
@@ -64,6 +72,10 @@
         "source": "com.navigatio.campusservices.app-main-45:/mipmap-xhdpi/ic_launcher_foreground.webp"
     },
     {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_bg_panel.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/bg_panel.xml"
+    },
+    {
         "merged": "com.navigatio.campusservices.app-debug-43:/drawable_maplogoicon.png.flat",
         "source": "com.navigatio.campusservices.app-main-45:/drawable/maplogoicon.png"
     },
@@ -74,6 +86,10 @@
     {
         "merged": "com.navigatio.campusservices.app-debug-43:/xml_backup_rules.xml.flat",
         "source": "com.navigatio.campusservices.app-main-45:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_bg_header.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/bg_header.xml"
     },
     {
         "merged": "com.navigatio.campusservices.app-debug-43:/drawable_map_page_1.png.flat",

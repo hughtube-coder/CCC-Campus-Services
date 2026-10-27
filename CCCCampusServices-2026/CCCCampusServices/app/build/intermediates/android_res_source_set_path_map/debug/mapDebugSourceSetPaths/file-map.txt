@@ -1,8 +1,8 @@
-com.navigatio.campusservices.app-pngs-0 C:\Users\admin\Downloads\CCC-Campus-Services-main\CCC-Campus-Services-main\CCCCampusServices\app\build\generated\res\pngs\debug
-com.navigatio.campusservices.app-updated_navigation_xml-1 C:\Users\admin\Downloads\CCC-Campus-Services-main\CCC-Campus-Services-main\CCCCampusServices\app\build\generated\updated_navigation_xml\debug
-com.navigatio.campusservices.app-packageDebugResources-2 C:\Users\admin\Downloads\CCC-Campus-Services-main\CCC-Campus-Services-main\CCCCampusServices\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.navigatio.campusservices.app-packageDebugResources-3 C:\Users\admin\Downloads\CCC-Campus-Services-main\CCC-Campus-Services-main\CCCCampusServices\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.navigatio.campusservices.app-debug-4 C:\Users\admin\Downloads\CCC-Campus-Services-main\CCC-Campus-Services-main\CCCCampusServices\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.navigatio.campusservices.app-debug-5 C:\Users\admin\Downloads\CCC-Campus-Services-main\CCC-Campus-Services-main\CCCCampusServices\app\src\debug\res
-com.navigatio.campusservices.app-main-6 C:\Users\admin\Downloads\CCC-Campus-Services-main\CCC-Campus-Services-main\CCCCampusServices\app\src\main\res
-gradleHome-0 C:\Users\admin\.gradle
+com.navigatio.campusservices.app-pngs-0 C:\Users\crism\Downloads\appqwertrtredfgtewsdfrew\CCC-Campus-Services\CCCCampusServices-2026\CCCCampusServices\app\build\generated\res\pngs\debug
+com.navigatio.campusservices.app-updated_navigation_xml-1 C:\Users\crism\Downloads\appqwertrtredfgtewsdfrew\CCC-Campus-Services\CCCCampusServices-2026\CCCCampusServices\app\build\generated\updated_navigation_xml\debug
+com.navigatio.campusservices.app-packageDebugResources-2 C:\Users\crism\Downloads\appqwertrtredfgtewsdfrew\CCC-Campus-Services\CCCCampusServices-2026\CCCCampusServices\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.navigatio.campusservices.app-packageDebugResources-3 C:\Users\crism\Downloads\appqwertrtredfgtewsdfrew\CCC-Campus-Services\CCCCampusServices-2026\CCCCampusServices\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.navigatio.campusservices.app-debug-4 C:\Users\crism\Downloads\appqwertrtredfgtewsdfrew\CCC-Campus-Services\CCCCampusServices-2026\CCCCampusServices\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.navigatio.campusservices.app-debug-5 C:\Users\crism\Downloads\appqwertrtredfgtewsdfrew\CCC-Campus-Services\CCCCampusServices-2026\CCCCampusServices\app\src\debug\res
+com.navigatio.campusservices.app-main-6 C:\Users\crism\Downloads\appqwertrtredfgtewsdfrew\CCC-Campus-Services\CCCCampusServices-2026\CCCCampusServices\app\src\main\res
+gradleHome-0 C:\Users\crism\.gradle

@@ -1,6 +1,10 @@
 com.navigatio.campusservices
 color black
 color white
+drawable bg_card
+drawable bg_header
+drawable bg_panel
+drawable bg_side_pill
 drawable campus_element
 drawable dashboard_dropdown
 drawable dashboard_instructions

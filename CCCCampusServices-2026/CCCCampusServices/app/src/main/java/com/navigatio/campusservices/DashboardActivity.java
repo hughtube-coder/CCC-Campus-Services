@@ -3274,14 +3274,17 @@ public class DashboardActivity extends AppCompatActivity {
                         endBitmapX,
                         endBitmapY)) {
 
+                    float[] s = snapToWalkable(bitmap, startBitmapX, startBitmapY);
+                    float[] e = snapToWalkable(bitmap, endBitmapX, endBitmapY);
+
                     drawSegmentFromBitmap(
                             canvas,
                             ox,
                             oy,
-                            startBitmapX,
-                            startBitmapY,
-                            endBitmapX,
-                            endBitmapY,
+                            s[0],
+                            s[1],
+                            e[0],
+                            e[1],
                             bitmapW,
                             bitmapH,
                             intrinsicW,
@@ -3830,31 +3833,23 @@ public class DashboardActivity extends AppCompatActivity {
          * =====================================================
          */
 
-        private boolean isWalkable(
-                int color) {
+        private boolean isWalkable(int color) {
 
-            int r =
-                    Color.red(color);
+            int r = Color.red(color);
+            int g = Color.green(color);
+            int b = Color.blue(color);
 
-            int g =
-                    Color.green(color);
+            boolean neutral =
+                    Math.abs(r - g) <= 8
+                            && Math.abs(g - b) <= 8;
 
-            int b =
-                    Color.blue(color);
+            boolean darkGray =
+                    r >= 65 && r <= 120 && neutral;
 
+            boolean midGray =
+                    r >= 120 && r <= 175 && neutral;
 
-            /*
-             * Current campus map walkway:
-             *
-             * dark gray
-             *
-             * R/G/B approximately equal.
-             */
-
-            return r >= 70
-                    && r <= 105
-                    && Math.abs(r - g) <= 6
-                    && Math.abs(g - b) <= 6;
+            return darkGray || midGray;
         }
 
 

@@ -1,0 +1,162 @@
+[
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/layout_activity_qrscanner.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/layout/activity_qrscanner.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/layout_activity_security_scan.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/layout/activity_security_scan.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/layout_spinner_dropdown_item.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/layout/spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_map_page_2.png.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/map_page_2.png"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/layout_activity_splash.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_dropdown.png.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/dropdown.png"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_dashboard_instructions.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/dashboard_instructions.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_menuicon.png.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/menuicon.png"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_dashboard_dropdown.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/dashboard_dropdown.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_maplogo.png.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/maplogo.png"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-xhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_maplogoicon.png.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/maplogoicon.png"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-hdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/xml_backup_rules.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_map_page_1.png.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/map_page_1.png"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_campus_element.png.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/campus_element.png"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/layout_activity_dashboard1.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/layout/activity_dashboard1.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/layout_activity_qr_scanner.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/layout/activity_qr_scanner.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_map_page_3.png.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/map_page_3.png"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/layout_activity_main.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_map_page_4.png.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/map_page_4.png"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/xml_data_extraction_rules.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/layout_activity_loading.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/layout/activity_loading.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.navigatio.campusservices.app-debug-43:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.navigatio.campusservices.app-main-45:/mipmap-xhdpi/ic_launcher_round.webp"
+    }
+]

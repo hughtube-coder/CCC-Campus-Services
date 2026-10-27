@@ -1,0 +1,12 @@
+lib/arm64-v8a/libimage_processing_util_jni.so->androidx.camera:camera-core:1.4.2
+lib/arm64-v8a/libsurface_util_jni.so->androidx.camera:camera-core:1.4.2
+lib/armeabi-v7a/libimage_processing_util_jni.so->androidx.camera:camera-core:1.4.2
+lib/armeabi-v7a/libsurface_util_jni.so->androidx.camera:camera-core:1.4.2
+lib/x86/libimage_processing_util_jni.so->androidx.camera:camera-core:1.4.2
+lib/x86/libsurface_util_jni.so->androidx.camera:camera-core:1.4.2
+lib/x86_64/libimage_processing_util_jni.so->androidx.camera:camera-core:1.4.2
+lib/x86_64/libsurface_util_jni.so->androidx.camera:camera-core:1.4.2
+lib/arm64-v8a/libbarhopper_v3.so->com.google.mlkit:barcode-scanning:17.3.0
+lib/armeabi-v7a/libbarhopper_v3.so->com.google.mlkit:barcode-scanning:17.3.0
+lib/x86/libbarhopper_v3.so->com.google.mlkit:barcode-scanning:17.3.0
+lib/x86_64/libbarhopper_v3.so->com.google.mlkit:barcode-scanning:17.3.0

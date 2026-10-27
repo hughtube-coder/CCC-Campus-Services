@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">CCC Campus Services</string>
+    <string name="campus_location">Campus Location</string>
+    <string name="loading_message">Loading...</string>
+    <string name="loading_title">CCC Campus Services</string>
+    <string name="scan_qr_code">SCAN QR CODE</string>
+    <string name="scan_qr_message">Scan the QR code at your current campus location to continue.</string>
+    <style name="Base.Theme.CCCCampusServices" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.CCCCampusServices" parent="Base.Theme.CCCCampusServices"/>
+</resources>
